@@ -1,0 +1,38 @@
+{
+    "Fonte de Dados do Educação": [
+        {
+            "name": "Educacao",
+              "columns": [
+                {
+                    "name": "id",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "sistemas",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "identificador",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "descricao",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "versao",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "host",
+                    "type": "VARCHAR"
+                },
+                {
+                    "name": "compatibilidade_filter_versao",
+                    "type": "INTERGER"
+                }
+            ],
+            "sources": [ "educacao-1.csv", "educacao-2.csv"]
+        }
+    ]
+}
