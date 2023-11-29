@@ -28,7 +28,7 @@
                     "type": "VARCHAR"
                 },
                 {
-                    "name": "compatibilidade_filter_versao",
+                    "name": "filter_versao",
                     "type": "INTERGER"
                 }
             ],
