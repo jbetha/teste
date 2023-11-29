@@ -1,7 +1,7 @@
 {
     "FonteEducacao": [
         {
-            "name": "Educacao",
+            "name": "educacao",
               "columns": [
                 {
                     "name": "id",
@@ -28,7 +28,7 @@
                     "type": "VARCHAR"
                 },
                 {
-                    "name": "filter_versao",
+                    "name": "filter",
                     "type": "INTEGER"
                 }
             ],
