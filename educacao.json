@@ -29,7 +29,7 @@
                 },
                 {
                     "name": "filter_versao",
-                    "type": "INTERGER"
+                    "type": "INTEGER"
                 }
             ],
             "sources": [ "educacao-1.csv", "educacao-2.csv"]
