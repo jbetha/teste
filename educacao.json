@@ -9,7 +9,7 @@
                 },
                 {
                     "name": "sistemas",
-                    "type": "INTEGER"
+                    "type": "VARCHAR"
                 },
                 {
                     "name": "identificador",
