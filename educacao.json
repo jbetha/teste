@@ -5,7 +5,7 @@
               "columns": [
                 {
                     "name": "id",
-                    "type": "VARCHAR"
+                    "type": "INTEGER"
                 },
                 {
                     "name": "sistemas",
