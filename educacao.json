@@ -5,7 +5,7 @@
               "columns": [
                 {
                     "name": "id",
-                    "type": "INTEGER"
+                    "type": "BIGINT"
                 },
                 {
                     "name": "sistemas",
