@@ -1,7 +1,7 @@
 {
     "tpch": [
         {
-            "name": "professores",
+            "name": "fontedados",
               "columns": [
                 {
                     "name": "id",
