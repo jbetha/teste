@@ -21,7 +21,7 @@
                 },
                 {
                     "name": "versao",
-                    "type": "BIGINT"
+                    "type": "INTEGER"
                 },
                 {
                     "name": "host",
@@ -29,7 +29,7 @@
                 },
                 {
                     "name": "filter",
-                    "type": "BIGINT"
+                    "type": "INTEGER"
                 }
             ],
             "sources": [ "educacao-1.csv", "educacao-2.csv"]
