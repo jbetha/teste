@@ -1,7 +1,7 @@
 {
-    "FonteEducacao": [
+    "tpch": [
         {
-            "name": "educacao",
+            "name": "professores",
               "columns": [
                 {
                     "name": "id",
