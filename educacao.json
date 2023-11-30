@@ -21,7 +21,7 @@
                 },
                 {
                     "name": "versao",
-                    "type": "INTEGER"
+                    "type": "BIGINT"
                 },
                 {
                     "name": "host",
