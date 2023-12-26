@@ -1,0 +1,333 @@
+openapi: 3.0.2
+info:
+  title: Contribuinte API
+  version: 1.0.0
+servers:
+  - url: https://tributos.suite.betha.cloud/dados/v1
+
+security:
+       - bearerAuth: []
+       - userAccessAuth: []
+paths:
+  /contribuintes:
+    get:
+      tags:
+        - contribuintes
+      operationId: contribuintes
+      summary: Listagem de contribuintes
+      parameters:
+        - name: offset
+          in: query
+          description: Número de registros a serem ignorados no início
+          required: false
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          description: Número máximo de registros a serem retornados
+          required: false
+          schema:
+            type: integer
+        - name: fields
+          in: query
+          description: Campos a serem retornados na resposta
+          required: false
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: Filtro para a lista de contribuintes
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Ordenação da lista
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Lista de contribuintes
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContribuintePadrao'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContribuintePadrao'
+        '400':
+          description: Atributos invalidos
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+    userAccessAuth:
+      type: apiKey
+      in: header
+      name: User-Access
+  schemas:
+    ContribuintePadrao:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador
+        codigo:
+          type: string
+          description: Código
+        nome:
+          type: string
+          description: Nome
+        nomeSemEspolio:
+          type: string
+          description: Nome sem espólio
+        cpfCnpj:
+          type: string
+          description: CPF/CNPJ
+        inscricaoMunicipal:
+          type: string
+          description: Inscrição municipal
+        nomeFantasia:
+          type: string
+          description: Nome fantasia
+        contribuinteEstrangeiro:
+          $ref: '#/components/schemas/PessoasEstrangeiras'
+        pessoaFisica:
+          $ref: '#/components/schemas/PessoasFisicas'
+        pessoaFisicaDocumentos:
+          $ref: '#/components/schemas/PessoasFisicasDocumentos'
+        pessoaJuridica:
+          $ref: '#/components/schemas/PessoasJuridicas'
+        site:
+          type: string
+          description: Site
+        situacao:
+          $ref: '#/components/schemas/SituacaoContribuinte'
+        tipoPessoa:
+          $ref: '#/components/schemas/TipoPessoa'
+        optanteSimplesNacional:
+          $ref: '#/components/schemas/SimNao'
+        enderecoPrincipalFormatado:
+          type: string
+        createdBy:
+          type: string
+        createdIn:
+          type: string
+        email:
+          type: string
+        telefone:
+          type: string
+        dhOperacao:
+          type: string
+
+    PessoasEstrangeiras:
+      type: object
+      properties:
+        id:
+          type: integer
+        numeroIdentidade:
+          type: string
+        orgaoEmissor:
+          type: string
+        dataExpedicao:
+          type: string
+        dataValidade:
+          type: string
+        dataChegada:
+          type: string
+        tipoVisto:
+          $ref: '#/components/schemas/TipoVisto'
+
+    PessoasFisicas:
+      type: object
+      properties:
+        id:
+          type: integer
+        pais:
+          $ref: '#/components/schemas/Pais'
+        municipio:
+          $ref: '#/components/schemas/Municipio'
+        naturalizado:
+          $ref: '#/components/schemas/SimNao'
+        sexo:
+          $ref: '#/components/schemas/Sexo'
+        estadoCivil:
+          $ref: '#/components/schemas/EstadoCivil'
+        dtNascimento:
+          type: string
+        dtObito:
+          type: string
+
+    PessoasFisicasDocumentos:
+      type: object
+      properties:
+        id:
+          type: integer
+        nroRg:
+          type: string
+        orgaoEmissorRg:
+          type: string
+        dtEmissaoRg:
+          type: string
+        estadoRg:
+          $ref: '#/components/schemas/Estado'
+        nroRic:
+          type: string
+        orgaoEmissorRic:
+          type: string
+        dtEmissaoRic:
+          type: string
+        estadoRic:
+          $ref: '#/components/schemas/Estado'
+        pisPasep:
+          type: string
+        dtEmissaoPisPasep:
+          type: string
+
+    PessoasJuridicas:
+      type: object
+      properties:
+        id:
+          type: integer
+        tipoEmpresa:
+          $ref: '#/components/schemas/TipoEmpresa'
+        dtConstituicao:
+          type: string
+        dtEncerramento:
+          type: string
+        nroRegistroJuntaComercial:
+          type: string
+        nroUltimaAlteracaoContratual:
+          type: string
+        capitalSocial:
+          type: number
+        porteEmpresa:
+          $ref: '#/components/schemas/PorteEmpresa'
+        entidadeRelacionada:
+          $ref: '#/components/schemas/SimNao'
+        matriculaCvm:
+          type: string
+        regEstrangeiro:
+          type: string
+        codigoVerificacaoAtos:
+          type: string
+        indSociedadeAnonima:
+          type: string
+        indSociedadeLimitada:
+          type: string
+        indEmpresaIndividualResponsabilidadeLimitada:
+          type: string
+        indSociedadeSimplesLimitada:
+          type: string
+        indSociedadeSimplesPura:
+          type: string
+        indSociedadeSimplesLimitadaUnipessoal:
+          type: string
+        indSociedadeSimplesPuraUnipessoal:
+          type: string
+        indEmpresaIndividualResponsabilidadeLimitadaUnipessoal:
+          type: string
+        indEmpresaIndividualResponsabilidadeLimitadaLimitadaUnipessoal:
+          type: string
+        cnaePrincipal:
+          $ref: '#/components/schemas/Cnae'
+        cnaeSecundarios:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cnae'
+    Pais:
+      type: object
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+        sigla:
+          type: string
+
+    Estado:
+      type: object
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+        sigla:
+          type: string
+
+    Municipio:
+      type: object
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+
+    Cnae:
+      type: object
+      properties:
+        id:
+          type: integer
+        codigo:
+          type: string
+
+    TipoVisto:
+      type: string
+      enum:
+        - VISITANTE
+        - TEMPORARIO
+        - RESIDENTE
+        - DIPLOMATICO
+
+    SituacaoContribuinte:
+      type: string
+      enum:
+        - ATIVO
+        - INATIVO
+
+    TipoPessoa:
+      type: string
+      enum:
+        - FISICA
+        - JURIDICA
+
+    SimNao:
+      type: string
+      enum:
+        - SIM
+        - NAO
+
+    Sexo:
+      type: string
+      enum:
+        - MASCULINO
+        - FEMININO
+
+    EstadoCivil:
+      type: string
+      enum:
+        - SOLTEIRO
+        - CASADO
+        - DIVORCIADO
+        - VIUVO
+
+    TipoEmpresa:
+      type: string
+      enum:
+        - MATRIZ
+        - FILIAL
+
+    PorteEmpresa:
+      type: string
+      enum:
+        - MICROEMPRESA
+        - EMPRESA_PEQUENO_PORT
+        - EMPRESA_MEDIO_PORT
+        - EMPRESA_GRANDE_PORT
