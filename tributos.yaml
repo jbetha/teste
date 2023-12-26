@@ -3,7 +3,7 @@ info:
   title: Contribuinte API
   version: 1.0.0
 servers:
-  - url: https://tributos.suite.betha.cloud/dados/v1
+  - url: https://tributos.test.suite.betha.cloud/dados/v1
 
 security:
        - bearerAuth: []
